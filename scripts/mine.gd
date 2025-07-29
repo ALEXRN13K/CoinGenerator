@@ -1,13 +1,8 @@
 extends Node2D
 
 
-
-
 @onready var mine_music: AudioStreamPlayer = $"Mine Music"
 
-func _ready() -> void:
-	mine_music.play()
-	
 
 
 func _on_button_button_down() -> void:
