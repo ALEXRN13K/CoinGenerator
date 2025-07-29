@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvlopntn1vngi"]
+
+[ext_resource type="Script" uid="uid://bp20pknumsgon" path="res://scripts/worm.gd" id="1_lley5"]
+[ext_resource type="FontFile" uid="uid://bml3rksft123t" path="res://assets/Normal ComicS.ttf" id="2_fb06d"]
+[ext_resource type="Texture2D" uid="uid://bds1ssqx1eerw" path="res://assets/Worm-8-2.png" id="2_ttset"]
+[ext_resource type="FontFile" uid="uid://cqdbbvm45rjq4" path="res://assets/Fat ComicS.ttf" id="5_aodjv"]
+[ext_resource type="Texture2D" uid="uid://cle1xl5t7grcv" path="res://assets/pixil-frame-0-2.png" id="5_tdamb"]
+[ext_resource type="Script" uid="uid://dtninqbw4sjtj" path="res://scripts/hovering_script.gd" id="6_aodjv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lley5"]
+
+[node name="Worm" type="Node2D"]
+script = ExtResource("1_lley5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ttset")
+
+[node name="Buy Button" type="Button" parent="."]
+offset_left = -487.0
+offset_top = -185.0
+offset_right = -334.0
+offset_bottom = -88.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lley5")
+text = "BUY"
+
+[node name="+1 COINS PER UPG" type="Label" parent="."]
+offset_left = -487.0
+offset_top = -66.0
+offset_right = -344.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("2_fb06d")
+theme_override_font_sizes/font_size = 30
+text = "+1 Coins
+ Per UPG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = -217.0
+offset_top = -315.0
+offset_right = 576.0
+offset_bottom = -211.0
+theme_override_fonts/font = ExtResource("2_fb06d")
+theme_override_font_sizes/font_size = 65
+text = "Price:"
+vertical_alignment = 1
+
+[node name="Worm Count" type="Label" parent="."]
+offset_left = -206.0
+offset_top = 231.0
+offset_right = 222.0
+offset_bottom = 322.0
+theme_override_fonts/font = ExtResource("5_aodjv")
+theme_override_font_sizes/font_size = 50
+text = "Worms:"
+vertical_alignment = 1
+
+[node name="worm pixel art" type="Sprite2D" parent="."]
+position = Vector2(381.182, 103.055)
+rotation = -0.785398
+scale = Vector2(4.07755, 3.90525)
+texture = ExtResource("5_tdamb")
+script = ExtResource("6_aodjv")
+
+[connection signal="redraw_wormcost" from="." to="." method="_on_redraw_wormcost"]
+[connection signal="pressed" from="Buy Button" to="." method="_on_buy_button_pressed"]

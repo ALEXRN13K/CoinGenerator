@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqhtvirbnodvm"
+path="res://.godot/imported/Cave Ambience.ogg-809d014b0b1931efe5b07ca5a0009c9f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Cave Ambience.ogg"
+dest_files=["res://.godot/imported/Cave Ambience.ogg-809d014b0b1931efe5b07ca5a0009c9f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

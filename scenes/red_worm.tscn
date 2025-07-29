@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://cddymt5h3wl11"]
+
+[ext_resource type="Script" uid="uid://cmf4uid5mrck3" path="res://scripts/red_worm.gd" id="1_cjk50"]
+[ext_resource type="FontFile" uid="uid://bml3rksft123t" path="res://assets/Normal ComicS.ttf" id="2_cjk50"]
+[ext_resource type="Texture2D" uid="uid://cxi7pqn8kyxu6" path="res://assets/Worm-9-2.png" id="2_ha8dy"]
+[ext_resource type="Texture2D" uid="uid://dlo41xlmo1se0" path="res://assets/pixil-frame-0-3-2.png" id="3_btch8"]
+[ext_resource type="FontFile" uid="uid://cqdbbvm45rjq4" path="res://assets/Fat ComicS.ttf" id="3_ha8dy"]
+[ext_resource type="Script" uid="uid://dtninqbw4sjtj" path="res://scripts/hovering_script.gd" id="4_btch8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btch8"]
+
+[node name="Red Worm" type="Node2D"]
+script = ExtResource("1_cjk50")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ha8dy")
+
+[node name="red worm pixel art" type="Sprite2D" parent="."]
+position = Vector2(384, 139)
+scale = Vector2(4.6225, 4.0575)
+texture = ExtResource("3_btch8")
+script = ExtResource("4_btch8")
+
+[node name="Buy Button" type="Button" parent="."]
+offset_left = -486.0
+offset_top = -239.0
+offset_right = -333.0
+offset_bottom = -142.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_btch8")
+text = "BUY"
+
+[node name="+1 COINS PER UPG" type="Label" parent="."]
+offset_left = -484.0
+offset_top = -128.0
+offset_right = -341.0
+offset_bottom = -13.0
+theme_override_fonts/font = ExtResource("2_cjk50")
+theme_override_font_sizes/font_size = 30
+text = "+15 Coins
+ Per UPG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = -217.0
+offset_top = -315.0
+offset_right = 576.0
+offset_bottom = -211.0
+theme_override_fonts/font = ExtResource("2_cjk50")
+theme_override_font_sizes/font_size = 65
+text = "Price: 50"
+vertical_alignment = 1
+
+[node name="Red Worm Count" type="Label" parent="."]
+offset_left = -206.0
+offset_top = 231.0
+offset_right = 222.0
+offset_bottom = 322.0
+theme_override_fonts/font = ExtResource("3_ha8dy")
+theme_override_font_sizes/font_size = 50
+text = "Red Worms: 1"
+vertical_alignment = 1
+
+[connection signal="redraw_wormcost" from="." to="." method="_on_redraw_wormcost"]
+[connection signal="reset" from="." to="." method="_on_reset"]
+[connection signal="pressed" from="Buy Button" to="." method="_on_buy_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtv4ocm1vivby"]
+
+[ext_resource type="Texture2D" uid="uid://blwl3i6lkre5r" path="res://assets/R.png" id="1_qspsm"]
+[ext_resource type="Script" uid="uid://ep8v3wam0woc" path="res://scripts/m button.gd" id="2_jglfk"]
+[ext_resource type="PackedScene" uid="uid://b0hra2x3whum5" path="res://scenes/mine.tscn" id="3_f25md"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypfdx"]
+size = Vector2(799, 804)
+
+[node name="M Button" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qspsm")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_jglfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_ypfdx")
+
+[node name="Mine" parent="Area2D" instance=ExtResource("3_f25md")]

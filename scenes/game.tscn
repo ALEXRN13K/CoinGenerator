@@ -1,0 +1,119 @@
+[gd_scene load_steps=16 format=3 uid="uid://ey56fwwtelih"]
+
+[ext_resource type="Script" uid="uid://y7jw00fh4fnb" path="res://scripts/game.gd" id="1_lnu2h"]
+[ext_resource type="FontFile" uid="uid://bml3rksft123t" path="res://assets/Normal ComicS.ttf" id="1_uwrxv"]
+[ext_resource type="AudioStream" uid="uid://dv4d1r8ic66ww" path="res://assets/summer nights.ogg" id="2_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://2gaoo2oesp34" path="res://scenes/world.tscn" id="2_gee14"]
+[ext_resource type="PackedScene" uid="uid://dh50vi1hk8l7n" path="res://scenes/r_button.tscn" id="2_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://oe3uqacymeje" path="res://scenes/transition.tscn" id="2_trtic"]
+[ext_resource type="PackedScene" uid="uid://75vmam73px0e" path="res://scenes/leaf_worm.tscn" id="2_u5sy4"]
+[ext_resource type="FontFile" uid="uid://cyt2fkey3o83y" path="res://assets/Mega Fat ComicS.ttf" id="2_yqjtg"]
+[ext_resource type="FontFile" uid="uid://cqdbbvm45rjq4" path="res://assets/Fat ComicS.ttf" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cddymt5h3wl11" path="res://scenes/red_worm.tscn" id="3_p57ef"]
+[ext_resource type="Script" uid="uid://brhjwv8uf57b8" path="res://scripts/audio.gd" id="3_vtaks"]
+[ext_resource type="PackedScene" uid="uid://cvlopntn1vngi" path="res://scenes/worm.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://d1ppnlxxvgw4g" path="res://scenes/node_2d.tscn" id="7_dinhu"]
+[ext_resource type="PackedScene" uid="uid://dtv4ocm1vivby" path="res://scenes/m_button.tscn" id="12_kvuet"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqjtg"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_lnu2h")
+coins = 100000000
+
+[node name="Transition" parent="." instance=ExtResource("2_trtic")]
+layer = 100
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_vtaks")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0tnpc")
+autoplay = true
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+z_index = 100
+enabled = false
+zoom = Vector2(0.05, 0.05)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Leaf Worm" parent="UI" instance=ExtResource("2_u5sy4")]
+z_index = 100
+position = Vector2(1000, 390)
+scale = Vector2(0.175, 0.175)
+
+[node name="Worm" parent="UI" instance=ExtResource("4_lbhrr")]
+z_index = 100
+position = Vector2(1000, 100)
+scale = Vector2(0.175, 0.175)
+
+[node name="Red Worm" parent="UI" instance=ExtResource("3_p57ef")]
+z_index = 100
+position = Vector2(1000, 245)
+scale = Vector2(0.175, 0.175)
+
+[node name="Archangel Worm" parent="UI" instance=ExtResource("7_dinhu")]
+position = Vector2(1000, 535)
+scale = Vector2(0.175, 0.175)
+
+[node name="Coins" type="Label" parent="UI"]
+offset_left = 29.0
+offset_top = 19.0
+offset_right = 587.0
+offset_bottom = 63.0
+pivot_offset = Vector2(3513, 668)
+theme_override_fonts/font = ExtResource("2_yqjtg")
+theme_override_font_sizes/font_size = 35
+text = "Coins:"
+
+[node name="Button" type="Button" parent="UI"]
+offset_left = 24.0
+offset_top = 566.0
+offset_right = 216.0
+offset_bottom = 618.0
+theme_override_fonts/font = ExtResource("3_lnu2h")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yqjtg")
+text = "Coin Generator"
+
+[node name="Timer" type="Timer" parent="UI"]
+wait_time = 0.05
+
+[node name="Coin Multiplier" type="Label" parent="UI"]
+offset_left = 30.0
+offset_top = 66.0
+offset_right = 157.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.922789, 3.24883e-06, 1.73271e-06, 1)
+theme_override_fonts/font = ExtResource("1_uwrxv")
+theme_override_font_sizes/font_size = 13
+text = "Coin Multiplier:"
+
+[node name="Rebirth Multiplier" type="Label" parent="UI"]
+offset_left = 30.0
+offset_top = 85.0
+offset_right = 157.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0.771931, 0.352497, 0, 1)
+theme_override_fonts/font = ExtResource("1_uwrxv")
+theme_override_font_sizes/font_size = 13
+text = "Rebirth Multiplier:"
+
+[node name="R Button" parent="UI" instance=ExtResource("2_kvpfn")]
+position = Vector2(793, -11)
+
+[node name="M Button" parent="UI" instance=ExtResource("12_kvuet")]
+position = Vector2(856, 107)
+scale = Vector2(0.053, 0.053)
+
+[node name="World" parent="." instance=ExtResource("2_gee14")]
+z_index = -100
+scale = Vector2(10, 10)
+
+[connection signal="redraw_coins" from="." to="." method="_on_redraw_coins"]
+[connection signal="reset_multiplier" from="." to="." method="_on_reset_multiplier"]
+[connection signal="redraw_wormcost" from="UI/Leaf Worm" to="UI/Leaf Worm" method="_on_redraw_wormcost"]
+[connection signal="reset" from="UI/Worm" to="UI/Worm" method="_on_reset"]
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]

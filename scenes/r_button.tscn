@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh50vi1hk8l7n"]
+
+[ext_resource type="Texture2D" uid="uid://dl0pdahpcpf1u" path="res://assets/R-2.png" id="1_kuog2"]
+[ext_resource type="Script" uid="uid://by5m32v66vreq" path="res://scripts/area_2d.gd" id="2_pci0b"]
+[ext_resource type="PackedScene" uid="uid://brbfhlpltbejr" path="res://scenes/rebirth_menu.tscn" id="3_kuog2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuog2"]
+size = Vector2(40, 40)
+
+[node name="R Button" type="Node2D"]
+z_index = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(63, 70)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_kuog2")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_pci0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 100
+position = Vector2(63, 70)
+shape = SubResource("RectangleShape2D_kuog2")
+
+[node name="Rebirth Menu" parent="Area2D" instance=ExtResource("3_kuog2")]
+position = Vector2(-207, 155)
+scale = Vector2(0.35, 0.35)

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0hra2x3whum5"]
+
+[ext_resource type="Texture2D" uid="uid://b5gg4aub4c768" path="res://assets/awesomeCavePixelArt.png" id="1_kqr42"]
+[ext_resource type="Script" uid="uid://so06bppfee15" path="res://scripts/mine.gd" id="1_m55k0"]
+[ext_resource type="AudioStream" uid="uid://cqhtvirbnodvm" path="res://assets/Cave Ambience.ogg" id="2_yym1a"]
+[ext_resource type="FontFile" uid="uid://cjc6q32go0b7a" path="res://assets/Okay Again - TTF.ttf" id="4_j4qwv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4qwv"]
+
+[node name="Mine" type="Node2D"]
+script = ExtResource("1_m55k0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577, 326.5)
+scale = Vector2(0.904687, 0.906944)
+texture = ExtResource("1_kqr42")
+
+[node name="Mine Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yym1a")
+volume_db = 15.0
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1032.0
+offset_top = 586.0
+offset_right = 1134.0
+offset_bottom = 629.0
+theme_override_fonts/font = ExtResource("4_j4qwv")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j4qwv")
+text = "Leave"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

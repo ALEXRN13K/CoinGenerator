@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://brbfhlpltbejr"]
+
+[ext_resource type="Texture2D" uid="uid://coxtpdijdyq7o" path="res://assets/REBIRTH-2.png" id="1_2vruu"]
+[ext_resource type="Script" uid="uid://chvo8rausypp" path="res://scripts/rebirth_menu.gd" id="1_yanac"]
+[ext_resource type="FontFile" uid="uid://bml3rksft123t" path="res://assets/Normal ComicS.ttf" id="2_yanac"]
+[ext_resource type="FontFile" uid="uid://cyt2fkey3o83y" path="res://assets/Mega Fat ComicS.ttf" id="3_os3od"]
+[ext_resource type="FontFile" uid="uid://cjc6q32go0b7a" path="res://assets/Okay Again - TTF.ttf" id="4_betbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2vruu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yanac"]
+
+[node name="Rebirth Menu" type="Node2D"]
+script = ExtResource("1_yanac")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
+texture = ExtResource("1_2vruu")
+
+[node name="Rebirths" type="Label" parent="."]
+z_index = 100
+offset_left = -167.0
+offset_top = 227.0
+offset_right = 318.0
+offset_bottom = 279.0
+theme_override_fonts/font = ExtResource("2_yanac")
+theme_override_font_sizes/font_size = 45
+text = "Rebirths: 0"
+
+[node name="Rebirth Cost" type="Label" parent="."]
+z_index = 100
+offset_left = -169.0
+offset_top = 160.0
+offset_right = 316.0
+offset_bottom = 212.0
+theme_override_fonts/font = ExtResource("2_yanac")
+theme_override_font_sizes/font_size = 45
+text = "Rebirth Cost: 100000"
+
+[node name="Rebirth Perks" type="Label" parent="."]
+z_index = 100
+offset_left = -491.0
+offset_top = -257.0
+offset_right = -228.0
+offset_bottom = -202.0
+theme_override_fonts/font = ExtResource("3_os3od")
+theme_override_font_sizes/font_size = 40
+text = "Rebirth Perks:"
+
+[node name="Explaining Text 1" type="Label" parent="."]
+z_index = 100
+offset_left = -492.0
+offset_top = -172.0
+offset_right = -237.0
+offset_bottom = -88.0
+theme_override_fonts/font = ExtResource("4_betbm")
+theme_override_font_sizes/font_size = 23
+text = "Gives you 2X Permanent
+Cash. Will reset all your
+            progress."
+
+[node name="Explaining Text 2" type="Label" parent="."]
+z_index = 100
+offset_left = -505.0
+offset_top = -34.0
+offset_right = -228.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("4_betbm")
+theme_override_font_sizes/font_size = 30
+text = " 5 RBTH: Unlocks
+ Archangel Worm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Explaining Text 3a" type="Label" parent="."]
+z_index = 100
+offset_left = -508.0
+offset_top = 90.0
+offset_right = -231.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("4_betbm")
+theme_override_font_sizes/font_size = 30
+text = " 7 RBTH: Unlocks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Explaining Text 3b" type="Label" parent="."]
+z_index = 100
+offset_left = -499.0
+offset_top = 148.0
+offset_right = -229.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.305922, 0.13858, 2.40654e-08, 1)
+theme_override_colors/font_shadow_color = Color(0.385482, 0.216985, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os3od")
+theme_override_font_sizes/font_size = 45
+text = "-The Mines-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leave" type="Button" parent="."]
+z_index = 100
+offset_left = 472.0
+offset_top = 247.0
+offset_right = 566.0
+offset_bottom = 292.0
+theme_override_fonts/font = ExtResource("3_os3od")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2vruu")
+text = "Leave"
+
+[node name="BUY REBIRTH" type="Button" parent="."]
+z_index = 100
+offset_left = -133.0
+offset_top = 57.0
+offset_right = 178.0
+offset_bottom = 139.0
+theme_override_fonts/font = ExtResource("3_os3od")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yanac")
+text = "Buy Rebirth"
+
+[connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="BUY REBIRTH" to="." method="_on_buy_rebirth_pressed"]
