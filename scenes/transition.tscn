@@ -19,6 +19,18 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xmi56"]
 resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_f0i4t"]
 resource_name = "fade_to_normal"
@@ -43,7 +55,7 @@ _data = {
 }
 
 [node name="Start Transition" type="CanvasLayer"]
-layer = 0
+layer = 100
 script = ExtResource("1_rerct")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -60,3 +72,5 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_hi828")
 }
+
+[connection signal="cave_change_to_black" from="." to="." method="_on_cave_change_to_black"]
