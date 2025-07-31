@@ -2,7 +2,7 @@ extends Node
 
 
 var coins := 0
-var upgrade_worm_plus_one_coin := 0
+var upgrade_worm_plus_one_coin := 1
 
 func load_game():
 	var game = get_node("/root/Game")
