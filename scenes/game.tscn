@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ey56fwwtelih"]
+[gd_scene load_steps=17 format=3 uid="uid://ey56fwwtelih"]
 
 [ext_resource type="Script" uid="uid://y7jw00fh4fnb" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="FontFile" uid="uid://bml3rksft123t" path="res://assets/Normal ComicS.ttf" id="1_uwrxv"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cqdbbvm45rjq4" path="res://assets/Fat ComicS.ttf" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cddymt5h3wl11" path="res://scenes/red_worm.tscn" id="3_p57ef"]
 [ext_resource type="Script" uid="uid://brhjwv8uf57b8" path="res://scripts/audio.gd" id="3_vtaks"]
+[ext_resource type="PackedScene" uid="uid://ctrxcumh84771" path="res://scenes/save_game.tscn" id="4_ir15t"]
 [ext_resource type="PackedScene" uid="uid://cvlopntn1vngi" path="res://scenes/worm.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://d1ppnlxxvgw4g" path="res://scenes/node_2d.tscn" id="7_dinhu"]
 [ext_resource type="PackedScene" uid="uid://dtv4ocm1vivby" path="res://scenes/m_button.tscn" id="12_kvuet"]
@@ -22,10 +23,11 @@ script = ExtResource("1_lnu2h")
 coins = 100000000
 
 [node name="Transition" parent="." instance=ExtResource("2_trtic")]
-layer = 100
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("3_vtaks")
+
+[node name="Save Game" parent="." instance=ExtResource("4_ir15t")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0tnpc")

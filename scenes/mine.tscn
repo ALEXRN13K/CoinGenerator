@@ -1,10 +1,121 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0hra2x3whum5"]
+[gd_scene load_steps=22 format=3 uid="uid://b0hra2x3whum5"]
 
 [ext_resource type="Texture2D" uid="uid://b5gg4aub4c768" path="res://assets/awesomeCavePixelArt.png" id="1_kqr42"]
 [ext_resource type="Script" uid="uid://so06bppfee15" path="res://scripts/mine.gd" id="1_m55k0"]
+[ext_resource type="Texture2D" uid="uid://pki5dsnh20ny" path="res://assets/mine/coal spritesheet.png" id="4_7f736"]
 [ext_resource type="FontFile" uid="uid://cjc6q32go0b7a" path="res://assets/Okay Again - TTF.ttf" id="4_j4qwv"]
+[ext_resource type="Texture2D" uid="uid://bjqmsw3q0dw5j" path="res://assets/mine/copper spritesheet.png" id="5_abhb0"]
+[ext_resource type="Texture2D" uid="uid://c35slm2ord0pj" path="res://assets/mine/gold spritesheet.png" id="6_gcxd8"]
+[ext_resource type="Texture2D" uid="uid://dldqvqx7rm1ib" path="res://assets/mine/iron spritesheet.png" id="7_u4wor"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4qwv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f736"]
+atlas = ExtResource("4_7f736")
+region = Rect2(0, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abhb0"]
+atlas = ExtResource("4_7f736")
+region = Rect2(100, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcxd8"]
+atlas = ExtResource("4_7f736")
+region = Rect2(200, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4wor"]
+atlas = ExtResource("5_abhb0")
+region = Rect2(0, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21nlm"]
+atlas = ExtResource("5_abhb0")
+region = Rect2(100, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plt5w"]
+atlas = ExtResource("5_abhb0")
+region = Rect2(200, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rgk8"]
+atlas = ExtResource("6_gcxd8")
+region = Rect2(0, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st5ho"]
+atlas = ExtResource("6_gcxd8")
+region = Rect2(100, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1elsy"]
+atlas = ExtResource("6_gcxd8")
+region = Rect2(200, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k3d8"]
+atlas = ExtResource("7_u4wor")
+region = Rect2(0, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5j7b"]
+atlas = ExtResource("7_u4wor")
+region = Rect2(100, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n3lr"]
+atlas = ExtResource("7_u4wor")
+region = Rect2(200, 50, 100, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21nlm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f736")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abhb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcxd8")
+}],
+"loop": true,
+"name": &"coal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4wor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21nlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plt5w")
+}],
+"loop": true,
+"name": &"copper",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rgk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st5ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1elsy")
+}],
+"loop": true,
+"name": &"gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k3d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5j7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n3lr")
+}],
+"loop": true,
+"name": &"iron",
+"speed": 5.0
+}]
 
 [node name="Mine" type="Node2D"]
 script = ExtResource("1_m55k0")
@@ -23,5 +134,11 @@ theme_override_fonts/font = ExtResource("4_j4qwv")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j4qwv")
 text = "Leave"
+
+[node name="Mineral Animations" type="AnimatedSprite2D" parent="."]
+position = Vector2(581, 557)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_21nlm")
+animation = &"gold"
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

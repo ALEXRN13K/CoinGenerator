@@ -9,10 +9,13 @@ var upgrade_worm_plus_one_coin = 1
 @export var rebirth_multiplier := 1
 @export var rebirth_coin_multiplier = 2
 var canclick = true
+
 func _ready() -> void:
+	SaveGame.load_game()
 	canclick = true
 	$"UI/Coin Multiplier".text = "Coin Multiplier: " + str(1) + "X"
 	$"UI/Rebirth Multiplier".hide()
+	$UI/Coins.text = "Coins: " + str(coins)
 	
 func _on_button_pressed() -> void:
 	if canclick == false:
