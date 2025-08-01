@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtv4ocm1vivby"]
+[gd_scene load_steps=6 format=3 uid="uid://dtv4ocm1vivby"]
 
+[ext_resource type="Script" uid="uid://d1tcd8ova4fca" path="res://scripts/hide.gd" id="1_f25md"]
 [ext_resource type="Texture2D" uid="uid://blwl3i6lkre5r" path="res://assets/R.png" id="1_qspsm"]
 [ext_resource type="Script" uid="uid://ep8v3wam0woc" path="res://scripts/m button.gd" id="2_jglfk"]
 [ext_resource type="PackedScene" uid="uid://b0hra2x3whum5" path="res://scenes/mine.tscn" id="3_f25md"]
@@ -8,6 +9,7 @@
 size = Vector2(799, 804)
 
 [node name="M Button" type="Node2D"]
+script = ExtResource("1_f25md")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qspsm")

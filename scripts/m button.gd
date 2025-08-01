@@ -13,4 +13,3 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void
 		SaveGame.save_game()
 		get_tree().change_scene_to_file("res://scenes/mine.tscn")
 		
-	

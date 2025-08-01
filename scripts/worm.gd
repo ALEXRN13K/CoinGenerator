@@ -4,18 +4,17 @@ signal redraw_wormcost
 signal reset
 
 @onready var coin_node = get_node("/root/Game")
-const worm_upgrade_cost_multiplier = 1.5
+var worm_upgrade_cost_multiplier = 1.5
 var worm_cost := 0
 var worms := 0
 
 func _ready() -> void:
+	SaveGame.load_game()
 	initialize()
 
 func initialize() -> void:
-	worm_cost = 10
-	worms = 1
 	$Label.text = "Price: " + str(worm_cost)
-	$"Worm Count".text = "Worms: 1"
+	$"Worm Count".text = "Worms: " + str(worms)
 
 func _on_buy_button_pressed() -> void:
 	var coins = coin_node.coins

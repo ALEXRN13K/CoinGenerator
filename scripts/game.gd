@@ -13,7 +13,7 @@ var canclick = true
 func _ready() -> void:
 	SaveGame.load_game()
 	canclick = true
-	$"UI/Coin Multiplier".text = "Coin Multiplier: " + str(1) + "X"
+	$"UI/Coin Multiplier".text = "Coin Multiplier: " + str(upgrade_worm_plus_one_coin) + "X"
 	$"UI/Rebirth Multiplier".hide()
 	$UI/Coins.text = "Coins: " + str(coins)
 	
