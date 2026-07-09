@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cmf4uid5mrck3" path="res://scripts/red_worm.gd" id="1_cjk50"]
 [ext_resource type="FontFile" uid="uid://bml3rksft123t" path="res://assets/Normal ComicS.ttf" id="2_cjk50"]
 [ext_resource type="Texture2D" uid="uid://cxi7pqn8kyxu6" path="res://assets/Worm-9-2.png" id="2_ha8dy"]
-[ext_resource type="Texture2D" uid="uid://dlo41xlmo1se0" path="res://assets/pixil-frame-0-3-2.png" id="3_btch8"]
+[ext_resource type="Texture2D" uid="uid://b3x0gc6xlqt7y" path="res://assets/pixil-frame-0-3.png" id="3_btch8"]
 [ext_resource type="FontFile" uid="uid://cqdbbvm45rjq4" path="res://assets/Fat ComicS.ttf" id="3_ha8dy"]
 [ext_resource type="Script" uid="uid://dtninqbw4sjtj" path="res://scripts/hovering_script.gd" id="4_btch8"]
 

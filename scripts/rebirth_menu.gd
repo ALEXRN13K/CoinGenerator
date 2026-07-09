@@ -11,9 +11,13 @@ var rebirth_cost := 100000
 @onready var leaf_worm = get_node("/root/Game/UI/Leaf Worm")
 @onready var archangel_worm = get_node("/root/Game/UI/Archangel Worm")
 @onready var rebirth_menu = get_node("/root/R Button/Area2D/Rebirth Menu")
+@onready var m_button = get_node("/root/Game/UI/m_button")
 
 func _on_leave_pressed() -> void:
 	hide()
+	
+func _ready() -> void:
+	print(m_button)
 	
 
 func _on_buy_rebirth_pressed() -> void:
@@ -25,7 +29,7 @@ func _on_buy_rebirth_pressed() -> void:
 		leaf_worm.emit_signal("reset")
 		rebirth_cost *= rebirth_cost_multiplier
 		$"Rebirth Cost".text = "Rebirth Cost: " + str(rebirth_cost)
-		coin_node.coins - 100
+		coin_node.coins == 0
 		coin_node.emit_signal("redraw_coins", 0)
 		rebirths += 1
 		$Rebirths.text = "Rebirths: " + str(rebirths)
@@ -34,6 +38,8 @@ func _on_buy_rebirth_pressed() -> void:
 		if rebirths >= 5:
 			archangel_worm.emit_signal("show_archangel_worm")
 			
+		if rebirths >= 2:
+			m_button.emit_signal("show_m_button")
 			
 		
 		

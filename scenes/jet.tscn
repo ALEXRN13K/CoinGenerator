@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://4t1rx8tsi2lh"]
+
+[ext_resource type="Texture2D" uid="uid://bju8na4eop3v7" path="res://assets/pixil-frame-0-6.png" id="1_l0pwp"]
+[ext_resource type="Script" uid="uid://dink73a54so73" path="res://scripts/jet.gd" id="1_t5v3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggp50"]
+size = Vector2(40, 39.5)
+
+[node name="Jet" type="CharacterBody2D"]
+script = ExtResource("1_t5v3o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l0pwp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -11.25)
+shape = SubResource("RectangleShape2D_ggp50")

@@ -2,4 +2,4 @@ extends Camera2D
 
 
 func _physics_process(delta: float) -> void:
-	global_position += Vector2(1, 0)
+	global_position += Vector2(0.5, 0)

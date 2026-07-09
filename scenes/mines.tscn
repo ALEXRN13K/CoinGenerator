@@ -1,0 +1,327 @@
+[gd_scene load_steps=33 format=3 uid="uid://d1n24omwe05cr"]
+
+[ext_resource type="PackedScene" uid="uid://4t1rx8tsi2lh" path="res://scenes/jet.tscn" id="1_aqnyu"]
+[ext_resource type="PackedScene" uid="uid://blya8vrc1bgg3" path="res://scenes/elias_thorne.tscn" id="1_nafqe"]
+[ext_resource type="Script" uid="uid://dekuucnpmrded" path="res://scenes/eliasthornearea2d.gd" id="2_5ax1x"]
+[ext_resource type="PackedScene" uid="uid://uerkgqp4rqkb" path="res://scenes/s_button.tscn" id="3_8ge3l"]
+[ext_resource type="Shader" uid="uid://de581mnn7ts0r" path="res://scripts/fog.gdshader" id="3_nxsip"]
+[ext_resource type="Texture2D" uid="uid://bbnees7o26wko" path="res://assets/pixil-frame-0-15.png" id="4_8jmqv"]
+[ext_resource type="Script" uid="uid://bsdjpmtjyp5wi" path="res://scripts/mines_camera.gd" id="4_fxsa3"]
+[ext_resource type="Texture2D" uid="uid://bdunqx13jywus" path="res://assets/pixil-frame-0-9.png" id="6_34heh"]
+[ext_resource type="Texture2D" uid="uid://blfo8ljx4ofg0" path="res://assets/R-4.png" id="7_2cp5x"]
+[ext_resource type="Script" uid="uid://duojhkdy7h18t" path="res://scripts/eshopbutton.gd" id="7_mn34y"]
+[ext_resource type="Script" uid="uid://4hj1qhm343wd" path="res://scripts/scenes.gd" id="8_mn34y"]
+[ext_resource type="PackedScene" uid="uid://c7pc3e253aqau" path="res://scenes/bob's_mining_pickaxe_shop_thing™.tscn" id="10_os7q8"]
+[ext_resource type="Texture2D" uid="uid://dts04mrhc04v4" path="res://assets/pixil-frame-0-22.png" id="11_1eaxl"]
+[ext_resource type="Script" uid="uid://cw2o0l45p8xim" path="res://scripts/bob's_mining_pickaxe_shop_thing™.gd" id="11_g7vyn"]
+[ext_resource type="Texture2D" uid="uid://byjfc62g0qsyh" path="res://assets/pixil-frame-0-20.png" id="12_nafqe"]
+[ext_resource type="Texture2D" uid="uid://b8fhqlbcwq17d" path="res://assets/pixil-frame-0-17.png" id="13_e0jyq"]
+[ext_resource type="AudioStream" uid="uid://bjro5x8ak6bxc" path="res://assets/Cave Theme.mp3" id="13_gisjy"]
+[ext_resource type="Texture2D" uid="uid://co7mfkq7bnrhi" path="res://assets/rocks-3.png" id="14_r48h0"]
+[ext_resource type="Texture2D" uid="uid://5a5c2fplkybw" path="res://assets/rocks(1).png" id="15_2mceq"]
+[ext_resource type="Texture2D" uid="uid://b1snqnoanp0ih" path="res://assets/rocks-2.png" id="16_1wudi"]
+[ext_resource type="Texture2D" uid="uid://p15ok48bw4du" path="res://assets/Screenshot 2026-07-08 at 17.53.18-Photoroom.png" id="17_2mceq"]
+[ext_resource type="Texture2D" uid="uid://dh64b7s5go2ld" path="res://assets/Screenshot 2026-07-08 at 18.01.33-Photoroom.png" id="18_1wudi"]
+[ext_resource type="Texture2D" uid="uid://cqx0s5rs67od4" path="res://assets/Screenshot 2026-07-08 at 18.04.54-Photoroom.png" id="18_8jmqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_te88u"]
+radius = 116.679
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fxsa3"]
+shader = ExtResource("3_nxsip")
+shader_parameter/base_color = Color(0.52549, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8ge3l"]
+frequency = 0.0235
+fractal_octaves = 9
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_34heh"]
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_8ge3l")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxsip"]
+size = Vector2(500, 50)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_34heh"]
+radius = 60.1664
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1ueu"]
+size = Vector2(499.387, 50.3256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eaxl"]
+size = Vector2(301.04, 50.3358)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jmqv"]
+size = Vector2(15.5771, 174.296)
+
+[node name="Mines" type="Node2D"]
+
+[node name="Elias Thorne" parent="." instance=ExtResource("1_nafqe")]
+position = Vector2(192, 194)
+scale = Vector2(0.6, 0.6)
+
+[node name="Area2D" type="Area2D" parent="Elias Thorne"]
+script = ExtResource("2_5ax1x")
+
+[node name="Talk Area" type="CollisionShape2D" parent="Elias Thorne/Area2D"]
+position = Vector2(555, 325)
+shape = SubResource("CircleShape2D_te88u")
+
+[node name="Jet" parent="." instance=ExtResource("1_aqnyu")]
+position = Vector2(157, 416)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D" type="Camera2D" parent="Jet"]
+position = Vector2(-52, -186)
+scale = Vector2(2, 2)
+script = ExtResource("4_fxsa3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Jet"]
+position = Vector2(-316, -832)
+scale = Vector2(2, 2)
+stream = ExtResource("13_gisjy")
+volume_db = 24.0
+pitch_scale = 1.06
+autoplay = true
+parameters/looping = true
+
+[node name="ACROSS THE FOG, TO THE LANDS BETWEEN, TO STAND BEFORE THE ELDEN RING" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="TextureRect" type="TextureRect" parent="ACROSS THE FOG, TO THE LANDS BETWEEN, TO STAND BEFORE THE ELDEN RING"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_fxsa3")
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 649.0
+size_flags_horizontal = 3
+texture = SubResource("NoiseTexture2D_34heh")
+
+[node name="ColorRect" type="ColorRect" parent="ACROSS THE FOG, TO THE LANDS BETWEEN, TO STAND BEFORE THE ELDEN RING"]
+z_index = 4096
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.466667)
+
+[node name="platform1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform1"]
+z_index = 1
+position = Vector2(8, 445)
+shape = SubResource("RectangleShape2D_nxsip")
+
+[node name="Sprite2D" type="Sprite2D" parent="platform1"]
+position = Vector2(8, 445)
+texture = ExtResource("4_8jmqv")
+
+[node name="platform2" type="StaticBody2D" parent="."]
+position = Vector2(500, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform2"]
+z_index = 1
+position = Vector2(8, 445)
+shape = SubResource("RectangleShape2D_nxsip")
+
+[node name="Sprite2D" type="Sprite2D" parent="platform2"]
+position = Vector2(8, 445)
+texture = ExtResource("4_8jmqv")
+
+[node name="UI BACK" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="Pickaxe Models" type="Sprite2D" parent="."]
+position = Vector2(-80, 370)
+texture = ExtResource("6_34heh")
+
+[node name="Area2D" type="Area2D" parent="Pickaxe Models"]
+script = ExtResource("7_mn34y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickaxe Models/Area2D"]
+shape = SubResource("CircleShape2D_34heh")
+
+[node name="E Button" type="Sprite2D" parent="."]
+position = Vector2(-80, 395)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("7_2cp5x")
+script = ExtResource("8_mn34y")
+
+[node name="UI FRONT" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="s_button" parent="UI FRONT" instance=ExtResource("3_8ge3l")]
+z_index = 400
+position = Vector2(38, 39)
+scale = Vector2(0.06, 0.06)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI FRONT"]
+offset_left = 838.0
+offset_top = 14.0
+offset_right = 1138.0
+offset_bottom = 44.0
+texture_under = ExtResource("11_1eaxl")
+texture_progress = ExtResource("12_nafqe")
+
+[node name="Label" type="Label" parent="UI FRONT"]
+offset_left = 969.0
+offset_top = 50.0
+offset_right = 1009.0
+offset_bottom = 73.0
+
+[node name="SCROLLABLE SHOP UI" type="CanvasLayer" parent="."]
+layer = 13
+offset = Vector2(1500, 0)
+transform = Transform2D(1, 0, 0, 1, 1500, 0)
+
+[node name="Bob\'s Mining Pickaxe Shop Thing™" parent="SCROLLABLE SHOP UI" instance=ExtResource("10_os7q8")]
+visible = false
+z_index = 1
+position = Vector2(-908, 321)
+scale = Vector2(0.785, 0.785)
+script = ExtResource("11_g7vyn")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(118, 236)
+rotation = -3.14159
+scale = Vector2(1.1414, 0.755083)
+texture = ExtResource("4_8jmqv")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/StaticBody2D"]
+position = Vector2(-0.000244141, -0.00189209)
+shape = SubResource("RectangleShape2D_l1ueu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-204.75, 318.43)
+rotation = 1.5708
+scale = Vector2(0.677651, 1.48999)
+texture = ExtResource("13_e0jyq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D"]
+position = Vector2(0.841034, -0.167389)
+shape = SubResource("RectangleShape2D_1eaxl")
+
+[node name="ROCK6" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(234, 234)
+rotation = -0.116269
+texture = ExtResource("14_r48h0")
+
+[node name="ROCK4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-142, 274)
+rotation = 0.286974
+texture = ExtResource("16_1wudi")
+flip_h = true
+flip_v = true
+
+[node name="ROCK5" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(225, 269)
+rotation = -0.310408
+scale = Vector2(0.880312, 1.02132)
+texture = ExtResource("16_1wudi")
+flip_v = true
+
+[node name="ROCK9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(422, 410)
+rotation = 0.0231823
+scale = Vector2(0.05, 0.067)
+texture = ExtResource("17_2mceq")
+
+[node name="ROCK10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-109, 417)
+rotation = 3.26337
+scale = Vector2(0.0878062, 0.0671446)
+texture = ExtResource("18_8jmqv")
+flip_h = true
+flip_v = true
+
+[node name="ROCK7" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(294, 235)
+rotation = 3.20823
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("17_2mceq")
+
+[node name="ROCK8" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(214, 415)
+rotation = 0.0673095
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("18_1wudi")
+
+[node name="ROCK BARRIER" type="StaticBody2D" parent="."]
+
+[node name="ROCK1" type="Sprite2D" parent="ROCK BARRIER"]
+z_index = 1
+position = Vector2(78, 371)
+rotation = 0.143487
+texture = ExtResource("16_1wudi")
+
+[node name="ROCK3" type="Sprite2D" parent="ROCK BARRIER"]
+z_index = -1
+position = Vector2(49, 325)
+rotation = -2.73069
+scale = Vector2(0.553004, 0.88162)
+skew = -0.075478
+texture = ExtResource("15_2mceq")
+flip_h = true
+
+[node name="ROCK12" type="Sprite2D" parent="ROCK BARRIER"]
+z_index = -1
+position = Vector2(71, 329)
+rotation = 2.56832
+scale = Vector2(0.052, 0.052)
+skew = -0.0797175
+texture = ExtResource("18_1wudi")
+
+[node name="ROCK13" type="Sprite2D" parent="ROCK BARRIER"]
+z_index = 1
+position = Vector2(132, 283)
+rotation = 1.42986
+scale = Vector2(1.12243, 1.31066)
+skew = -0.0394025
+texture = ExtResource("16_1wudi")
+
+[node name="ROCK2" type="Sprite2D" parent="ROCK BARRIER"]
+z_index = -1
+position = Vector2(40, 319)
+rotation = 0.286974
+scale = Vector2(0.775309, 1.27724)
+texture = ExtResource("15_2mceq")
+
+[node name="ROCK11" type="Sprite2D" parent="ROCK BARRIER"]
+position = Vector2(61, 341)
+rotation = 1.26536
+scale = Vector2(0.0452509, 0.0519901)
+texture = ExtResource("18_1wudi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ROCK BARRIER"]
+z_index = 1
+position = Vector2(68.6311, 334.462)
+rotation = 0.295109
+shape = SubResource("RectangleShape2D_8jmqv")
+
+[connection signal="body_entered" from="Elias Thorne/Area2D" to="Jet" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pickaxe Models/Area2D" to="Pickaxe Models/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Pickaxe Models/Area2D" to="Pickaxe Models/Area2D" method="_on_body_exited"]
+[connection signal="closeshop" from="SCROLLABLE SHOP UI/Bob\'s Mining Pickaxe Shop Thing™" to="SCROLLABLE SHOP UI/Bob\'s Mining Pickaxe Shop Thing™" method="_on_closeshop"]
+[connection signal="showshop" from="SCROLLABLE SHOP UI/Bob\'s Mining Pickaxe Shop Thing™" to="SCROLLABLE SHOP UI/Bob\'s Mining Pickaxe Shop Thing™" method="_on_showshop"]

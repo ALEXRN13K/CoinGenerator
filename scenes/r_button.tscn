@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh50vi1hk8l7n"]
 
-[ext_resource type="Texture2D" uid="uid://dl0pdahpcpf1u" path="res://assets/R-2.png" id="1_kuog2"]
+[ext_resource type="Texture2D" uid="uid://blwl3i6lkre5r" path="res://assets/R.png" id="1_pkmkd"]
 [ext_resource type="Script" uid="uid://by5m32v66vreq" path="res://scripts/area_2d.gd" id="2_pci0b"]
 [ext_resource type="PackedScene" uid="uid://brbfhlpltbejr" path="res://scenes/rebirth_menu.tscn" id="3_kuog2"]
 
@@ -14,7 +14,7 @@ z_index = 100
 z_index = 100
 position = Vector2(63, 70)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_kuog2")
+texture = ExtResource("1_pkmkd")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_pci0b")

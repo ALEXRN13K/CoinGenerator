@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjro5x8ak6bxc"
+path="res://.godot/imported/Cave Theme.mp3-668f0fd6f6cd01d0d2bf61038649d307.mp3str"
+
+[deps]
+
+source_file="res://assets/Cave Theme.mp3"
+dest_files=["res://.godot/imported/Cave Theme.mp3-668f0fd6f6cd01d0d2bf61038649d307.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

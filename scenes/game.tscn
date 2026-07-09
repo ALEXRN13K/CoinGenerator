@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://dv4d1r8ic66ww" path="res://assets/summer nights.ogg" id="2_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://2gaoo2oesp34" path="res://scenes/world.tscn" id="2_gee14"]
 [ext_resource type="PackedScene" uid="uid://dh50vi1hk8l7n" path="res://scenes/r_button.tscn" id="2_kvpfn"]
-[ext_resource type="PackedScene" uid="uid://oe3uqacymeje" path="res://scenes/transition.tscn" id="2_trtic"]
 [ext_resource type="PackedScene" uid="uid://75vmam73px0e" path="res://scenes/leaf_worm.tscn" id="2_u5sy4"]
 [ext_resource type="FontFile" uid="uid://cyt2fkey3o83y" path="res://assets/Mega Fat ComicS.ttf" id="2_yqjtg"]
 [ext_resource type="FontFile" uid="uid://cqdbbvm45rjq4" path="res://assets/Fat ComicS.ttf" id="3_lnu2h"]
@@ -13,16 +12,14 @@
 [ext_resource type="Script" uid="uid://brhjwv8uf57b8" path="res://scripts/audio.gd" id="3_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cvlopntn1vngi" path="res://scenes/worm.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://d1ppnlxxvgw4g" path="res://scenes/node_2d.tscn" id="7_dinhu"]
-[ext_resource type="PackedScene" uid="uid://dtv4ocm1vivby" path="res://scenes/m_button.tscn" id="12_kvuet"]
+[ext_resource type="PackedScene" uid="uid://wd2effr1esee" path="res://scenes/m_button.tscn" id="8_kvuet"]
+[ext_resource type="Script" uid="uid://bfxy5dkwb6b6u" path="res://scripts/m_button.gd" id="9_trtic"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqjtg"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lnu2h")
-coins = 100000000
-
-[node name="Transition" parent="." instance=ExtResource("2_trtic")]
-layer = 100
+coins = 9999999
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("3_vtaks")
@@ -56,6 +53,11 @@ scale = Vector2(0.175, 0.175)
 [node name="Archangel Worm" parent="UI" instance=ExtResource("7_dinhu")]
 position = Vector2(1000, 535)
 scale = Vector2(0.175, 0.175)
+
+[node name="m_button" parent="UI" instance=ExtResource("8_kvuet")]
+position = Vector2(854, 102)
+scale = Vector2(0.05, 0.05)
+script = ExtResource("9_trtic")
 
 [node name="Coins" type="Label" parent="UI"]
 offset_left = 29.0
@@ -101,11 +103,7 @@ theme_override_font_sizes/font_size = 13
 text = "Rebirth Multiplier:"
 
 [node name="R Button" parent="UI" instance=ExtResource("2_kvpfn")]
-position = Vector2(793, -11)
-
-[node name="M Button" parent="UI" instance=ExtResource("12_kvuet")]
-position = Vector2(856, 107)
-scale = Vector2(0.053, 0.053)
+position = Vector2(791, -11)
 
 [node name="World" parent="." instance=ExtResource("2_gee14")]
 z_index = -100
@@ -115,5 +113,6 @@ scale = Vector2(10, 10)
 [connection signal="reset_multiplier" from="." to="." method="_on_reset_multiplier"]
 [connection signal="redraw_wormcost" from="UI/Leaf Worm" to="UI/Leaf Worm" method="_on_redraw_wormcost"]
 [connection signal="reset" from="UI/Worm" to="UI/Worm" method="_on_reset"]
+[connection signal="show_m_button" from="UI/m_button" to="UI/m_button" method="_on_show_m_button"]
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]
