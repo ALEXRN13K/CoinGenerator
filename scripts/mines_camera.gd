@@ -1,5 +1,10 @@
 extends Camera2D
 
+signal warp_to_elias
+signal warp_from_elias
+
+@export var end_pos = Vector2(736.0, -54.0)
+
 @export var look_ahead_factor: float = 0.05
 @export var transition_speed: float = 3.0
 
@@ -28,3 +33,15 @@ func _process(delta: float) -> void:
 	var target_offset = Vector2(target_offset_x, target_offset_y)
 
 	offset = offset.lerp(target_offset, delta * transition_speed)
+
+
+func _on_warp_to_elias() -> void:
+	var t = get_tree().create_tween()
+	t.tween_property(self, "zoom", Vector2(3, 3), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+
+
+func _on_warp_from_elias() -> void:
+	var t = get_tree().create_tween()
+	t.tween_property(self, "zoom", Vector2(1, 1), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	

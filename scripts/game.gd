@@ -1,42 +1,41 @@
 extends Node
-signal redraw_coins(multiplier)
-signal reset_multiplier
 
-@onready var rebirths = get_node("UI/R Button/Area2D/Rebirth Menu/")
-@export var coins := 0
-var upgrade_worm_plus_one_coin = 1
-@export var rebirth_multiplier := 1
-@export var rebirth_coin_multiplier = 2
-var canclick = true
+@onready var rebirths = $"UI/R Button/Area2D/Rebirth Menu"
 
-func _ready() -> void:
-	canclick = true
-	$UI/Coins.text = "Coins: " + str(0)
-	$"UI/Coin Multiplier".text = "Coin Multiplier: " + str(1) + "X"
-	$"UI/Rebirth Multiplier".hide()
+var canclick := true
 
-func _on_button_pressed() -> void:
-	if canclick == false:
+func _ready():
+	GameManager.coins_changed.connect(update_coins)
+	GameManager.multiplier_changed.connect(update_multiplier)
+	GameManager.rebirth_changed.connect(update_rebirth)
+	update_ui()
+
+func update_ui():
+	$UI/Coins.text = "Coins: " + str(GameManager.coins)
+	$"UI/Coin Multiplier".text = "Coin Multiplier: " + str(GameManager.coin_multiplier) + "X"
+
+	if GameManager.rebirth_multiplier > 1:
+		update_rebirth()
+	else:
+		$"UI/Rebirth Multiplier".hide()
+
+func _on_button_pressed():
+	if not canclick:
 		return
-	coins += upgrade_worm_plus_one_coin * rebirth_multiplier
-	$UI/Coins.text = "Coins: " + str(coins)
-	print(rebirths)
+
+	GameManager.add_coin()
 	$UI/Timer.start()
 	canclick = false
-#print(canclick)
-#print(coins)
 
-func _on_timer_timeout() -> void:
+func _on_timer_timeout():
 	canclick = true
-#print(canclick)
 
-func _on_redraw_coins(multiplier) -> void:
-	$UI/Coins.text = "Coins: " + str(coins)
-	upgrade_worm_plus_one_coin += multiplier
-	$"UI/Coin Multiplier".text = "Coin Multiplier: " + str(upgrade_worm_plus_one_coin) + "X"
+func update_coins():
+	$UI/Coins.text = "Coins: " + str(GameManager.coins)
 
-func _on_reset_multiplier() -> void:
-	upgrade_worm_plus_one_coin = 1
-	rebirth_multiplier += 1
-	$"UI/Rebirth Multiplier".text = "Rebirth Multiplier: " + str(rebirth_multiplier) + "X"
+func update_multiplier():
+		$"UI/Coin Multiplier".text = "Coin Multiplier: " + str(GameManager.coin_multiplier) + "X"
+
+func update_rebirth():
+	$"UI/Rebirth Multiplier".text = "Rebirth Multiplier: " + str(GameManager.rebirth_multiplier) + "X"
 	$"UI/Rebirth Multiplier".show()

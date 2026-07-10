@@ -1,50 +1,40 @@
 extends Node2D
 
 
-const rebirth_cost_multiplier := 2.2
-var rebirth_cost := 100000
-@export var rebirths := 0
-
-@onready var coin_node = get_node("/root/Game")
-@onready var worm = get_node("/root/Game/UI/Worm")
-@onready var red_worm = get_node("/root/Game/UI/Red Worm")
-@onready var leaf_worm = get_node("/root/Game/UI/Leaf Worm")
 @onready var archangel_worm = get_node("/root/Game/UI/Archangel Worm")
-@onready var rebirth_menu = get_node("/root/R Button/Area2D/Rebirth Menu")
 @onready var m_button = get_node("/root/Game/UI/m_button")
 
-func _on_leave_pressed() -> void:
+
+func _ready():
+
+	GameManager.unlock_archangel.connect(unlock_archangel)
+	GameManager.unlock_mines.connect(unlock_mines)
+
+	update_ui()
+
+
+func _on_leave_pressed():
 	hide()
-	
-func _ready() -> void:
-	print(m_button)
-	
 
-func _on_buy_rebirth_pressed() -> void:
-	if coin_node.coins >= rebirth_cost:
-		
-		coin_node.emit_signal("reset_multiplier")
-		worm.emit_signal("reset")
-		red_worm.emit_signal("reset")
-		leaf_worm.emit_signal("reset")
-		rebirth_cost *= rebirth_cost_multiplier
-		$"Rebirth Cost".text = "Rebirth Cost: " + str(rebirth_cost)
-		coin_node.coins == 0
-		coin_node.emit_signal("redraw_coins", 0)
-		rebirths += 1
-		$Rebirths.text = "Rebirths: " + str(rebirths)
-		print(rebirths)
+
+func _on_buy_rebirth_pressed():
+
+	if GameManager.buy_rebirth():
 		hide()
-		if rebirths >= 5:
-			archangel_worm.emit_signal("show_archangel_worm")
-			
-		if rebirths >= 2:
-			m_button.emit_signal("show_m_button")
-			
-		
-		
+		update_ui()
 
 
+func update_ui():
 
-func _on_show_archangel_worm() -> void:
-	archangel_worm.archangel_worm.hide()
+	$"Rebirth Cost".text = "Rebirth Cost: " + str(GameManager.rebirth_cost)
+	$Rebirths.text = "Rebirths: " + str(GameManager.rebirths)
+
+
+func unlock_archangel():
+
+	archangel_worm.unlock_archangel_worm()
+
+
+func unlock_mines():
+
+	m_button.emit_signal("show_m_button")

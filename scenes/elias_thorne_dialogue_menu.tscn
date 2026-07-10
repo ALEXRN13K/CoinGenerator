@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cpnth7e2cr8si"]
+
+[ext_resource type="Texture2D" uid="uid://daikqa76wcjwx" path="res://assets/Diseño sin título.png" id="1_i2cmg"]
+[ext_resource type="Script" uid="uid://de844nwwyr5gl" path="res://scenes/elias_thorne_dialogue_menu.gd" id="1_mk78m"]
+[ext_resource type="Texture2D" uid="uid://bckgeq2h8soh1" path="res://assets/pixilart-sprite-6.png" id="2_xqsai"]
+[ext_resource type="FontFile" uid="uid://cmp6hn8ijf0xi" path="res://assets/Junicode-BoldItalic.ttf" id="4_xqsai"]
+[ext_resource type="Script" uid="uid://c1xk51m7qbnuw" path="res://scripts/dialoguelabel.gd" id="5_sg6o0"]
+[ext_resource type="Texture2D" uid="uid://blfo8ljx4ofg0" path="res://assets/R-4.png" id="6_cqsdf"]
+[ext_resource type="Script" uid="uid://ds35nfpvggqyk" path="res://scenes/ebuttoneliasmenu.gd" id="7_f1iyy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg6o0"]
+atlas = ExtResource("2_xqsai")
+region = Rect2(0, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqsdf"]
+atlas = ExtResource("2_xqsai")
+region = Rect2(100, 0, 100, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivm6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg6o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqsdf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.8
+}]
+
+[node name="Elias Thorne DialogueMenu" type="Node2D" unique_id=423749783]
+script = ExtResource("1_mk78m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2116675505]
+scale = Vector2(2, 2)
+texture = ExtResource("1_i2cmg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2141795612]
+position = Vector2(-125, -7)
+scale = Vector2(0.5, 0.421)
+sprite_frames = SubResource("SpriteFrames_ivm6g")
+autoplay = "default"
+frame_progress = 0.95096374
+
+[node name="Label" type="Label" parent="." unique_id=1248462080 groups=["dialogue"]]
+offset_left = -69.0
+offset_top = -39.0
+offset_right = 162.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_xqsai")
+theme_override_font_sizes/font_size = 12
+text = "Upper Text"
+autowrap_mode = 3
+script = ExtResource("5_sg6o0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=12590115 groups=["dialogue_e_button"]]
+position = Vector2(-157, 66.00001)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("6_cqsdf")
+script = ExtResource("7_f1iyy")
+
+[connection signal="visible_false" from="Sprite2D2" to="Sprite2D2" method="_on_visible_false"]
+[connection signal="visible_true" from="Sprite2D2" to="Sprite2D2" method="_on_visible_true"]

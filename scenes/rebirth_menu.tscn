@@ -1,23 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://brbfhlpltbejr"]
+[gd_scene format=3 uid="uid://brbfhlpltbejr"]
 
 [ext_resource type="Texture2D" uid="uid://coxtpdijdyq7o" path="res://assets/REBIRTH-2.png" id="1_2vruu"]
 [ext_resource type="Script" uid="uid://chvo8rausypp" path="res://scripts/rebirth_menu.gd" id="1_yanac"]
 [ext_resource type="FontFile" uid="uid://bml3rksft123t" path="res://assets/Normal ComicS.ttf" id="2_yanac"]
 [ext_resource type="FontFile" uid="uid://cyt2fkey3o83y" path="res://assets/Mega Fat ComicS.ttf" id="3_os3od"]
-[ext_resource type="FontFile" uid="uid://cjc6q32go0b7a" path="res://assets/Okay Again - TTF.ttf" id="4_betbm"]
+[ext_resource type="FontFile" uid="uid://dj2b432068dcj" path="res://assets/Junicode-Bold.ttf" id="4_os3od"]
+[ext_resource type="FontFile" uid="uid://brbfifrpg37gj" path="res://assets/Junicode-Italic.ttf" id="5_betbm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2vruu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yanac"]
 
-[node name="Rebirth Menu" type="Node2D"]
+[node name="Rebirth Menu" type="Node2D" unique_id=1953157471]
 script = ExtResource("1_yanac")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=66946265]
 z_index = 100
 texture = ExtResource("1_2vruu")
 
-[node name="Rebirths" type="Label" parent="."]
+[node name="Rebirths" type="Label" parent="." unique_id=773014309]
 z_index = 100
 offset_left = -167.0
 offset_top = 227.0
@@ -27,7 +28,7 @@ theme_override_fonts/font = ExtResource("2_yanac")
 theme_override_font_sizes/font_size = 45
 text = "Rebirths: 0"
 
-[node name="Rebirth Cost" type="Label" parent="."]
+[node name="Rebirth Cost" type="Label" parent="." unique_id=721169502]
 z_index = 100
 offset_left = -169.0
 offset_top = 160.0
@@ -37,54 +38,54 @@ theme_override_fonts/font = ExtResource("2_yanac")
 theme_override_font_sizes/font_size = 45
 text = "Rebirth Cost: 100000"
 
-[node name="Rebirth Perks" type="Label" parent="."]
+[node name="Rebirth Perks" type="Label" parent="." unique_id=1104106211]
 z_index = 100
-offset_left = -491.0
-offset_top = -257.0
-offset_right = -228.0
-offset_bottom = -202.0
-theme_override_fonts/font = ExtResource("3_os3od")
+offset_left = -479.0
+offset_top = -258.0
+offset_right = -242.0
+offset_bottom = -203.0
+theme_override_fonts/font = ExtResource("4_os3od")
 theme_override_font_sizes/font_size = 40
 text = "Rebirth Perks:"
 
-[node name="Explaining Text 1" type="Label" parent="."]
+[node name="Explaining Text 1" type="Label" parent="." unique_id=707883143]
 z_index = 100
-offset_left = -492.0
+offset_left = -481.0
 offset_top = -172.0
-offset_right = -237.0
+offset_right = -251.0
 offset_bottom = -88.0
-theme_override_fonts/font = ExtResource("4_betbm")
+theme_override_fonts/font = ExtResource("4_os3od")
 theme_override_font_sizes/font_size = 23
 text = "Gives you 2X Permanent
 Cash. Will reset all your
             progress."
 
-[node name="Explaining Text 2" type="Label" parent="."]
+[node name="Explaining Text 2" type="Label" parent="." unique_id=337978943]
 z_index = 100
 offset_left = -505.0
 offset_top = -34.0
 offset_right = -228.0
 offset_bottom = 39.0
-theme_override_fonts/font = ExtResource("4_betbm")
+theme_override_fonts/font = ExtResource("5_betbm")
 theme_override_font_sizes/font_size = 30
-text = " 5 RBTH: Unlocks
+text = " 1 RBTH: Unlocks
  Archangel Worm"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Explaining Text 3a" type="Label" parent="."]
+[node name="Explaining Text 3a" type="Label" parent="." unique_id=1336734516]
 z_index = 100
 offset_left = -508.0
 offset_top = 90.0
 offset_right = -231.0
 offset_bottom = 163.0
-theme_override_fonts/font = ExtResource("4_betbm")
+theme_override_fonts/font = ExtResource("5_betbm")
 theme_override_font_sizes/font_size = 30
-text = " 7 RBTH: Unlocks"
+text = " 3 RBTH: Unlocks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Explaining Text 3b" type="Label" parent="."]
+[node name="Explaining Text 3b" type="Label" parent="." unique_id=672774091]
 z_index = 100
 offset_left = -499.0
 offset_top = 148.0
@@ -99,7 +100,7 @@ text = "-The Mines-"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Leave" type="Button" parent="."]
+[node name="Leave" type="Button" parent="." unique_id=341442883]
 z_index = 100
 offset_left = 472.0
 offset_top = 247.0
@@ -110,7 +111,7 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vruu")
 text = "Leave"
 
-[node name="BUY REBIRTH" type="Button" parent="."]
+[node name="BUY REBIRTH" type="Button" parent="." unique_id=660842999]
 z_index = 100
 offset_left = -133.0
 offset_top = 57.0
