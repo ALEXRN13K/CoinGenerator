@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://chm24nsh1hgio"]
+
+[ext_resource type="Texture2D" uid="uid://dlcmbg0hknnxr" path="res://assets/pixilart-sprite-4.png" id="1_f0r8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f651v"]
+atlas = ExtResource("1_f0r8y")
+region = Rect2(25, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6niw0"]
+atlas = ExtResource("1_f0r8y")
+region = Rect2(50, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7uw0"]
+atlas = ExtResource("1_f0r8y")
+region = Rect2(125, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wln33"]
+atlas = ExtResource("1_f0r8y")
+region = Rect2(75, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq1yc"]
+atlas = ExtResource("1_f0r8y")
+region = Rect2(100, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ek5v"]
+atlas = ExtResource("1_f0r8y")
+region = Rect2(0, 0, 25, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ka3i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f651v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6niw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7uw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wln33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq1yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ek5v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=540692777]
+
+[node name="Sprite2Dcaca" type="AnimatedSprite2D" parent="." unique_id=1614340708]
+texture_repeat = 1
+position = Vector2(-15, 115.70007)
+sprite_frames = SubResource("SpriteFrames_5ka3i")

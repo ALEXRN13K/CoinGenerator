@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+
+
 @export var max_dist := 1000000.0
 
 var toggledialogue := 0
@@ -7,8 +9,7 @@ var toggle := 0
 
 var dialogue_finished := false
 
-var speed := 220
-var jump_force := 420
+
 var gravity := 900
 
 var origin := Vector2(-145, 415)
@@ -18,13 +19,15 @@ var timer := 0.0
 var waiting_for_continue := false
 var dialogue_step := 0
 
+	
+
+
 @onready var Elias_Thorne = $"../Elias Thorne"
 @onready var fog_mat = $"../ACROSS THE FOG, TO THE LANDS BETWEEN, TO STAND BEFORE THE ELDEN RING/TextureRect".material
 @onready var danger_bar = $"../UI FRONT/TextureProgressBar"
-@onready var player_camera = $Camera2D
-@onready var elias_dialogue = $"../UI FRONT/Elias Thorne DialogueMenu"
 @onready var elias_label = get_tree().get_first_node_in_group("dialogue")
 @onready var e_button = get_tree().get_first_node_in_group("dialogue_e_button")
+
 
 
 func _physics_process(delta):
@@ -37,8 +40,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("left"):
 		dir -= 1
 
-
-	var target_speed := dir * speed
+	var target_speed = dir * GameManager.speed
 	var accel := 1800
 	var friction := 2200
 
@@ -54,7 +56,7 @@ func _physics_process(delta):
 
 
 	if Input.is_action_just_pressed("up") and is_on_floor():
-		velocity.y = -jump_force
+		velocity.y = -GameManager.jump_force
 
 
 	move_and_slide()
@@ -64,7 +66,7 @@ func _physics_process(delta):
 	var game_pos := global_position - origin
 	var dist := game_pos.length()
 
-	var fog_alpha: float = clamp(30.0 + dist * 0.05, 30.0, 255.0)
+	var fog_alpha: float = clamp(30.0 + dist * 0.0005, 30.0, 255.0)
 
 	var color = fog_mat.get_shader_parameter("base_color")
 	color.a = fog_alpha / 255.0
@@ -98,6 +100,10 @@ func _physics_process(delta):
 
 
 func _ready() -> void:
+	if GameManager.elias_dialogue_completed:
+		$"../Elias Thorne".visible = false
+		$"../Elias Thorne/Area2D".queue_free()
+		$"../ROCK BARRIER".queue_free()
 
 	var t = get_tree().create_tween()
 	t.tween_property(Elias_Thorne, "modulate:a", 0, 0.1)
@@ -110,14 +116,29 @@ func _ready() -> void:
 		print("ERROR: Dialogue label not found")
 
 
+	GameManager.register_scene_refs({
+		"player_camera": $Camera2D,
+		"elias_dialogue": $"../UI FRONT/Elias Thorne DialogueMenu",
+		"area2delias": $"../Elias Thorne/Area2D",
+		"rock_barrier": $"../ROCK BARRIER",
+		"rockcollision": $"../ROCK BARRIER/CollisionShape2D",
+
+		"rock_1": $"../ROCK BARRIER/ROCK1",
+		"rock_2": $"../ROCK BARRIER/ROCK2",
+		"rock_3": $"../ROCK BARRIER/ROCK3",
+		"rock_4": $"../ROCK BARRIER/ROCK4",
+		"rock_5": $"../ROCK BARRIER/ROCK5",
+		"rock_6": $"../ROCK BARRIER/ROCK6",
+	})
+
+
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 
-	speed = 0
-	jump_force = 0
+	GameManager.speed = 0
+	GameManager.jump_force = 0
 
-
-	player_camera.emit_signal("warp_to_elias")
+	GameManager.player_camera.emit_signal("warp_to_elias")
 	print("camera signal printed")
 
 
@@ -131,7 +152,7 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	)
 
 	t.tween_property(
-		elias_dialogue,
+		GameManager.elias_dialogue,
 		"modulate:a",
 		1.0,
 		0.5
@@ -237,17 +258,29 @@ We shall sit together… two broken vessels… listening as the mountain itself 
 
 
 func end_dialogue():
+	GameManager.elias_dialogue_completed = true
 
-	dialogue_finished = false
-
-	speed = 220
-	jump_force = 420
+	GameManager.speed = 220
+	GameManager.jump_force = 420
 
 	var t = get_tree().create_tween()
-	t.tween_property(elias_dialogue, "modulate:a", 0, 0.5)
+	t.tween_property(GameManager.elias_dialogue, "modulate:a", 0, 0.5)
 
-	player_camera.emit_signal("warp_from_elias")
+	GameManager.player_camera.emit_signal("warp_from_elias")
 
-	print("dialogue ended")
+	GameManager.area2delias.queue_free()
+	
+	if GameManager.rock_barrier.visible == true:
+		t.tween_property(GameManager.rock_1, "modulate:a", 0, 0.4)
+		t.tween_property(GameManager.rock_2, "modulate:a", 0, 0.4)
+		t.tween_property(GameManager.rock_3, "modulate:a", 0, 0.4)
+		t.tween_property(GameManager.rock_4, "modulate:a", 0, 0.4)
+		t.tween_property(GameManager.rock_5, "modulate:a", 0, 0.4)
+		t.tween_property(GameManager.rock_6, "modulate:a", 0, 0.4)
+	
+		#t.tween_property(rockcollision, "modulate:a", 0, 0.4)
+		GameManager.rock_barrier.queue_free()
+	GameManager.rock_barrier.visible = false
 
-			
+
+	

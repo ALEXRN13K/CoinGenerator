@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 UpgradeManager="*uid://n7tlt18d4fbd"
 GameManager="*uid://dmw0eb1mu11yp"
+WorldGenerator="*uid://duo8biffhvrfb"
 
 [display]
 
@@ -34,6 +35,8 @@ window/main_scene="uid://2gaoo2oesp34"
 
 dialogue_e_button=""
 dialogue=""
+player=""
+mines=""
 
 [input]
 

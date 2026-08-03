@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c7jy2q1n40ym2"]
+
+[ext_resource type="Script" uid="uid://b71wlpbultiow" path="res://world_generator.gd" id="1_uvvky"]
+[ext_resource type="PackedScene" uid="uid://dl6olgr8n6ly0" path="res://scenes/chunk.tscn" id="2_c804g"]
+
+[node name="CAVES" type="Node2D" unique_id=1668225837 groups=["mines"]]
+script = ExtResource("1_uvvky")
+chunk_scene = ExtResource("2_c804g")
+
+[node name="Chunks" parent="." unique_id=720129728 instance=ExtResource("2_c804g")]
+script = null

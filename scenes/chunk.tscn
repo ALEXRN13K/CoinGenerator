@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dl6olgr8n6ly0"]
+
+[ext_resource type="Script" uid="uid://bpiklmlysntm5" path="res://scripts/chunk.gd" id="1_jas4a"]
+[ext_resource type="PackedScene" uid="uid://bok1jx7xa3g5s" path="res://scenes/stone.tscn" id="2_jtw3q"]
+
+[node name="Chunk" type="Node2D" unique_id=720129728]
+script = ExtResource("1_jas4a")
+stone_scene = ExtResource("2_jtw3q")
+
+[node name="Blocks" type="Node2D" parent="." unique_id=772944058]

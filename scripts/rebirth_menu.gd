@@ -1,16 +1,12 @@
 extends Node2D
 
-
 @onready var archangel_worm = get_node("/root/Game/UI/Archangel Worm")
 @onready var m_button = get_node("/root/Game/UI/m_button")
 
 
 func _ready():
-
-	GameManager.unlock_archangel.connect(unlock_archangel)
-	GameManager.unlock_mines.connect(unlock_mines)
-
 	update_ui()
+	check_unlocks()
 
 
 func _on_leave_pressed():
@@ -18,23 +14,21 @@ func _on_leave_pressed():
 
 
 func _on_buy_rebirth_pressed():
-
 	if GameManager.buy_rebirth():
 		hide()
 		update_ui()
+		check_unlocks()
 
 
 func update_ui():
-
 	$"Rebirth Cost".text = "Rebirth Cost: " + str(GameManager.rebirth_cost)
 	$Rebirths.text = "Rebirths: " + str(GameManager.rebirths)
 
 
-func unlock_archangel():
+func check_unlocks():
 
-	archangel_worm.unlock_archangel_worm()
+	if GameManager.archangel_worm_unlocked:
+		archangel_worm.show()
 
-
-func unlock_mines():
-
-	m_button.emit_signal("show_m_button")
+	if GameManager.mines_unlocked:
+		m_button.emit_signal("show_m_button")

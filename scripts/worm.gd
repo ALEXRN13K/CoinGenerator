@@ -1,37 +1,17 @@
 extends Node2D
 
-signal redraw_wormcost
 
-const worm_upgrade_cost_multiplier := 1.5
-
-var worm_cost := 10
-var worms := 1
-
-
-func _ready() -> void:
+func _ready():
+	GameManager.worm_changed.connect(update_ui)
 	update_ui()
 
 
-func _on_buy_button_pressed() -> void:
-	if GameManager.coins >= worm_cost:
-		GameManager.coins -= worm_cost
+func _on_buy_button_pressed():
 
-		worms += 1
-		worm_cost *= worm_upgrade_cost_multiplier
-
-		GameManager.add_coin_multiplier(1)
-		GameManager.coins_changed.emit()
-
-		redraw_wormcost.emit()
-		update_ui()
+	GameManager.buy_worm("worm")
 
 
-func update_ui() -> void:
-	$Label.text = "Price: " + str(worm_cost)
-	$"Worm Count".text = "Worms: " + str(worms)
+func update_ui():
 
-
-func _on_reset() -> void:
-	worm_cost = 10
-	worms = 1
-	update_ui()
+	$Label.text = "Price: " + str(GameManager.worm_cost)
+	$"Worm Count".text = "Worms: " + str(GameManager.worms)

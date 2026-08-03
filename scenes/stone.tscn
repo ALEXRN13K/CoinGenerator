@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bok1jx7xa3g5s"]
+
+[ext_resource type="Texture2D" uid="uid://bmkvgd5vmv8l8" path="res://assets/default_0.png" id="1_hmdus"]
+[ext_resource type="Script" uid="uid://wjwxxobjqr3t" path="res://scripts/stone.gd" id="1_tuldt"]
+
+[node name="Stone" type="StaticBody2D" unique_id=620716128]
+modulate = Color(0.35305238, 0.35305238, 0.35305238, 1)
+script = ExtResource("1_tuldt")
+
+[node name="Outline" type="Sprite2D" parent="." unique_id=430290930]
+modulate = Color(0.7309131, 0.7309131, 0.73091304, 1)
+scale = Vector2(3.1, 3.1)
+texture = ExtResource("1_hmdus")
+
+[node name="Fill" type="Sprite2D" parent="." unique_id=1047558635]
+modulate = Color(1.4211367, 1.4211367, 1.4211367, 1)
+position = Vector2(0, -0.99999994)
+scale = Vector2(2.9, 2.9)
+texture = ExtResource("1_hmdus")
+
+[node name="Effects" type="Node2D" parent="." unique_id=1516758586]
+scale = Vector2(2.9, 2.9)
