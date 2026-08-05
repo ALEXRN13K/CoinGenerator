@@ -87,8 +87,7 @@ script = ExtResource("4_fxsa3")
 position = Vector2(-316, -832)
 scale = Vector2(2, 2)
 stream = ExtResource("13_gisjy")
-volume_db = 24.0
-pitch_scale = 1.06
+volume_db = 22.056
 autoplay = true
 parameters/looping = true
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7pc3e253aqau"]
+[gd_scene format=3 uid="uid://c7pc3e253aqau"]
 
 [ext_resource type="Texture2D" uid="uid://dkt3msibsgrv" path="res://assets/shopbob2.0.png" id="1_maqcq"]
 [ext_resource type="Script" uid="uid://bgmxusxj0u5i8" path="res://scripts/scroll_container.gd" id="2_ejx0h"]
-[ext_resource type="Texture2D" uid="uid://lf0ebsr8ilab" path="res://assets/R-6-2.png" id="3_6nb3l"]
+[ext_resource type="Texture2D" uid="uid://bvhrmnd8ya3op" path="res://assets/Diseño sin título-6.png" id="3_maqcq"]
 [ext_resource type="Texture2D" uid="uid://davilw6n10g2p" path="res://assets/TIER 1 PICKAXES.png" id="4_j7wry"]
 [ext_resource type="Texture2D" uid="uid://bfvn85reghadg" path="res://assets/frame_new_animation_1.png" id="4_x377j"]
 [ext_resource type="Script" uid="uid://heru6xhqbm7k" path="res://scripts/node.gd" id="5_0qgoy"]
@@ -75,264 +75,264 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nuong")
 }],
-"loop": true,
+"loop": 1,
 "name": &"new_animation",
 "speed": 3.0
 }]
 
-[node name="Bob\'s Mining Pickaxe Shop Thing™" type="Node2D"]
+[node name="Bob\'s Mining Pickaxe Shop Thing™" type="Node2D" unique_id=629133332]
 scale = Vector2(3, 3)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1321700466]
 position = Vector2(2, -2)
 texture = ExtResource("1_maqcq")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Sprite2D"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Sprite2D" unique_id=95070919]
 z_index = 2
-layout_direction = 3
-offset_left = -485.0
-offset_top = 30.0
-offset_right = 491.0
+offset_left = -482.00012
+offset_top = 46.0
+offset_right = 482.66663
 offset_bottom = 396.0
+layout_direction = 3
 follow_focus = true
 vertical_scroll_mode = 0
 script = ExtResource("2_ejx0h")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="Sprite2D/ScrollContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Sprite2D/ScrollContainer" unique_id=1966059727]
 z_index = 2
 custom_minimum_size = Vector2(2000, 0)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Sprite2D/ScrollContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Sprite2D/ScrollContainer/VBoxContainer" unique_id=1687616748]
 custom_minimum_size = Vector2(1350, 0)
-layout_direction = 1
 layout_mode = 2
+layout_direction = 1
 
-[node name="BOX2" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX2" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=1093029914]
 layout_mode = 0
-offset_left = -412.0
-offset_right = -276.0
-offset_bottom = 136.0
-texture = ExtResource("3_6nb3l")
+offset_left = -435.0
+offset_top = 3.6666667
+offset_right = -299.0
+offset_bottom = 139.66667
+texture = ExtResource("3_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX2"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX2" unique_id=1698807091]
 position = Vector2(59, 65)
 scale = Vector2(6, 6)
 texture = ExtResource("4_x377j")
 
-[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX2"]
+[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX2" unique_id=1664000615]
 layout_mode = 0
 offset_left = -2.0
-offset_top = 143.0
+offset_top = 155.0
 offset_right = 201.0
-offset_bottom = 191.0
+offset_bottom = 203.0
 theme_override_fonts/font = ExtResource("6_maqcq")
 theme_override_font_sizes/font_size = 20
 text = "Wooden Pickaxe"
 
-[node name="BOX1" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX1" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=483266630]
 layout_mode = 0
-offset_left = -615.0
-offset_top = 1.0
-offset_right = -479.0
-offset_bottom = 137.0
-texture = ExtResource("3_6nb3l")
+offset_left = -638.0
+offset_top = 4.666667
+offset_right = -502.0
+offset_bottom = 140.66667
+texture = ExtResource("3_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX1"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX1" unique_id=1769534038]
 position = Vector2(64, 60)
 scale = Vector2(6, 6)
 texture = ExtResource("5_6nb3l")
 
-[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX1"]
+[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX1" unique_id=308782940]
 layout_mode = 0
-offset_left = 3.33333
-offset_top = 142.667
-offset_right = 206.333
-offset_bottom = 190.667
+offset_top = 155.0
+offset_right = 202.99966
+offset_bottom = 203.0
 theme_override_fonts/font = ExtResource("6_maqcq")
 theme_override_font_sizes/font_size = 20
 text = "Broken Pickaxe"
 
-[node name="BOX4" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX4" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=1822283839]
 layout_mode = 0
-offset_left = -9.0
-offset_top = 1.0
-offset_right = 127.0
-offset_bottom = 137.0
-texture = ExtResource("3_6nb3l")
+offset_left = -32.000004
+offset_top = 4.666667
+offset_right = 104.0
+offset_bottom = 140.66667
+texture = ExtResource("3_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX4"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX4" unique_id=2060707357]
 position = Vector2(52, 65)
 scale = Vector2(6.47368, 6.44828)
 texture = ExtResource("6_f7ngk")
 
-[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX4"]
+[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX4" unique_id=1690699101]
 layout_mode = 0
 offset_left = 13.0
-offset_top = 144.667
+offset_top = 155.0
 offset_right = 216.0
-offset_bottom = 192.667
+offset_bottom = 203.0
 theme_override_fonts/font = ExtResource("6_maqcq")
 theme_override_font_sizes/font_size = 20
 text = "Iron Pickaxe"
 
-[node name="BOX3" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX3" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=2115467165]
 layout_mode = 0
-offset_left = -208.0
-offset_top = 1.0
-offset_right = -72.0
-offset_bottom = 137.0
-texture = ExtResource("3_6nb3l")
+offset_left = -231.0
+offset_top = 4.666667
+offset_right = -95.0
+offset_bottom = 140.66667
+texture = ExtResource("3_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX3"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX3" unique_id=1989435735]
 position = Vector2(56, 65)
 scale = Vector2(6, 6)
 texture = ExtResource("7_nuong")
 
-[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX3"]
+[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX3" unique_id=247252428]
 layout_mode = 0
-offset_left = 6.33333
-offset_top = 146.333
-offset_right = 132.333
-offset_bottom = 170.333
+offset_left = 6.333
+offset_top = 155.0
+offset_right = 132.33301
+offset_bottom = 179.0
 theme_override_fonts/font = ExtResource("6_maqcq")
 theme_override_font_sizes/font_size = 20
 text = "Stone Pickaxe"
 
-[node name="BOX5" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX5" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=1219882233]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 1.0
-offset_right = 323.0
-offset_bottom = 137.0
-texture = ExtResource("3_6nb3l")
+offset_left = 164.0
+offset_top = 4.666667
+offset_right = 300.0
+offset_bottom = 140.66667
+texture = ExtResource("3_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX5"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX5" unique_id=2139140078]
 z_index = 1
 position = Vector2(57, 67)
 scale = Vector2(6, 6)
 texture = ExtResource("8_nuong")
 
-[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX5"]
+[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX5" unique_id=1204312463]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 144.333
+offset_top = 155.0
 offset_right = 218.0
-offset_bottom = 192.333
+offset_bottom = 203.0
 theme_override_fonts/font = ExtResource("6_maqcq")
 theme_override_font_sizes/font_size = 20
 text = "Gold Pickaxe"
 
-[node name="BOX6" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX6" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=1204297127]
 layout_mode = 0
-offset_left = 384.333
-offset_top = 0.666667
-offset_right = 520.333
-offset_bottom = 136.667
-texture = ExtResource("3_6nb3l")
+offset_left = 361.333
+offset_top = 4.666667
+offset_right = 497.333
+offset_bottom = 140.667
+texture = ExtResource("3_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX6"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX6" unique_id=1753673252]
 z_index = 1
 position = Vector2(63, 62)
 scale = Vector2(6, 6)
 texture = ExtResource("10_vfy5l")
 
-[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX6"]
+[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX6" unique_id=840204192]
 layout_mode = 0
-offset_left = -7.66665
-offset_top = 144.667
-offset_right = 141.333
-offset_bottom = 192.667
+offset_left = -8.666348
+offset_top = 155.0
+offset_right = 140.33365
+offset_bottom = 203.0
 theme_override_fonts/font = ExtResource("6_maqcq")
 theme_override_font_sizes/font_size = 20
 text = "Diamond Pickaxe"
 
-[node name="BOX7" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX7" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=1429432424]
 layout_mode = 0
-offset_left = 789.0
-offset_top = 0.333333
-offset_right = 925.0
-offset_bottom = 136.333
-texture = ExtResource("3_6nb3l")
+offset_left = 766.0
+offset_top = 4.666667
+offset_right = 902.0
+offset_bottom = 140.66634
+texture = ExtResource("3_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX7"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX7" unique_id=122219575]
 z_index = 1
 position = Vector2(63, 62)
 scale = Vector2(6, 6)
 texture = ExtResource("11_0qgbm")
 
-[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX7"]
+[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX7" unique_id=1220727241]
 layout_mode = 0
-offset_left = -21.3334
-offset_top = 144.667
-offset_right = 154.667
-offset_bottom = 195.667
+offset_left = -21.333
+offset_top = 155.0
+offset_right = 154.66742
+offset_bottom = 206.0
 theme_override_fonts/font = ExtResource("6_maqcq")
 theme_override_font_sizes/font_size = 20
 text = "Amethyst Pickspear
 "
 
-[node name="BOX9" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX9" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=1355380377]
 layout_mode = 0
-offset_left = 988.0
-offset_top = 2.33333
-offset_right = 1124.0
-offset_bottom = 138.333
+offset_left = 965.0
+offset_top = 4.666667
+offset_right = 1101.0
+offset_bottom = 140.66634
 texture = ExtResource("11_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX9"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX9" unique_id=1432522059]
 z_index = 1
 position = Vector2(63, 62)
 scale = Vector2(6, 6)
 
-[node name="BOX10" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX10" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=333544298]
 layout_mode = 0
-offset_left = 1186.0
-offset_top = 3.33333
-offset_right = 1322.0
-offset_bottom = 139.333
+offset_left = 1163.0
+offset_top = 4.666667
+offset_right = 1299.0
+offset_bottom = 140.66634
 texture = ExtResource("11_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX10"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX10" unique_id=1250468179]
 z_index = 1
 position = Vector2(63, 62)
 scale = Vector2(6, 6)
 
-[node name="BOX8" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control"]
+[node name="BOX8" type="TextureRect" parent="Sprite2D/ScrollContainer/VBoxContainer/Control" unique_id=1628439582]
 layout_mode = 0
-offset_left = 582.0
-offset_top = 2.33333
-offset_right = 718.0
-offset_bottom = 138.333
-texture = ExtResource("3_6nb3l")
+offset_left = 559.0
+offset_top = 4.666667
+offset_right = 695.0
+offset_bottom = 140.66634
+texture = ExtResource("3_maqcq")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX8"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX8" unique_id=1737715804]
 z_index = 1
 position = Vector2(63, 62)
 scale = Vector2(6, 6)
 texture = ExtResource("9_vfy5l")
 
-[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX8"]
+[node name="Label" type="Label" parent="Sprite2D/ScrollContainer/VBoxContainer/Control/BOX8" unique_id=2001089822]
 layout_mode = 0
-offset_left = -10.3333
-offset_top = 142.667
-offset_right = 153.667
-offset_bottom = 190.667
+offset_left = -10.333
+offset_top = 155.0
+offset_right = 153.6673
+offset_bottom = 203.0
 theme_override_fonts/font = ExtResource("6_maqcq")
 theme_override_font_sizes/font_size = 20
 text = "Emerald Pickspear"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D" unique_id=852893630]
 position = Vector2(186.562, -331.438)
 scale = Vector2(7.09868, 6.65948)
 sprite_frames = SubResource("SpriteFrames_vfy5l")
@@ -340,36 +340,5 @@ animation = &"new_animation"
 autoplay = "new_animation"
 frame_progress = 0.599674
 
-[node name="Node" type="Node" parent="."]
+[node name="Node" type="Node" parent="." unique_id=1181606683]
 script = ExtResource("5_0qgoy")
-
-[node name="Button2" type="Button" parent="."]
-offset_left = 1082.0
-offset_top = 31.0
-offset_right = 1146.0
-offset_bottom = 265.0
-
-[node name="Button" type="Button" parent="."]
-offset_left = 882.0
-offset_top = 28.0
-offset_right = 946.0
-offset_bottom = 262.0
-
-[node name="Button3" type="Button" parent="."]
-offset_left = 1285.0
-offset_top = 30.0
-offset_right = 1349.0
-offset_bottom = 264.0
-
-[node name="Button4" type="Button" parent="."]
-offset_left = 677.0
-offset_top = 28.0
-offset_right = 741.0
-offset_bottom = 262.0
-
-[node name="Button4" type="Button" parent="Button4"]
-layout_mode = 0
-offset_left = -197.0
-offset_top = -2.0
-offset_right = -133.0
-offset_bottom = 232.0
